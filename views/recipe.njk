@@ -1,0 +1,78 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+   <title>{{item.title}}</title>
+{% endblock %}
+
+{% block content %}
+
+    <div class="recipe">
+        <div class="recipe-header">
+            <img src="{{item.image}}" alt="Imagem de {{item.title}}">
+            <h3>{{item.title}}</h3>
+            <p>{{item.author}}</p>
+        
+        
+        </div>
+
+        <div class="recipe-content">
+            <div id="ingredients" class="topic">
+                <h3>Ingredientes</h3>
+                <h4>ESCONDER</h4>
+                <div class="topic-content">
+                    <ul>
+                    
+                        {% for ingredient in item.ingredients %}
+                        <li>{{ingredient}}</li>
+                        {% endfor %}
+                    </ul>
+                
+                </div>
+            </div>
+
+            <div id="preparation" class="topic">
+                 <h3>Modo de preparo</h3>
+                 <button onclick="myFunction()">Hide/Show</button> 
+                 <div id="myDIV">
+                    Aplicar botão em cada item.
+                    </div>
+                    <script>
+                        function myFunction() {
+                        var x = document.getElementById("myDIV");
+                        if (x.style.display === "none") {
+                            x.style.display = "block";
+                        } else {
+                            x.style.display = "none";
+                        }
+                        }
+                        </script>
+                <h4>ESCONDER</h4>
+                <div class="topic-content">
+                    <ul>
+                    
+                        {% for preparation in item.preparation %}
+                        <li>{{preparation}}</li>
+                        {% endfor %}
+                    </ul>
+                
+                </div>
+            
+            </div>
+
+             <div id="information" class="topic">
+                 <h3>Informações adicionais</h3>
+                <h4>MOSTRAR</h4>
+                <div class="topic-content">
+                  <P>{{item.information}}</P>
+                
+                </div>
+            
+            </div>
+        
+        
+        
+        </div>
+    </div>
+
+
+{% endblock content %}
